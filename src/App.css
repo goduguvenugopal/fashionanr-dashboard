@@ -1,0 +1,145 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  user-select: none;
+}
+
+.enroll-main-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 2rem;
+}
+
+.form-card {
+  box-shadow: 0 0 6px rgb(112, 109, 109);
+  padding: 10px;
+  
+  border-radius: 10px;
+  
+  
+}
+
+ 
+.label {
+  font-size: 15px;
+  font-weight: 500;
+  margin-top: 0.7rem;
+  margin-bottom: 0.2rem;
+}
+.input-box {
+  width: 250px;
+  padding-left: 10px;
+  border: 1px solid rgb(22, 22, 22);
+  height: 33px;
+  border-radius: 5px;
+}
+
+@media only screen and (max-width: 768px) {
+  .form-card {
+    margin-top: 3rem;
+    width: 300px;
+  }
+  .enroll-main-card {
+    padding-top: 5rem;
+  }
+  .all-text{
+    font-size: 18px !important;  
+    
+  }
+}
+
+@media only screen and (min-width: 768px) {
+
+  #form-response{
+    display: flex;
+    justify-content: center;
+    width: 90vw;
+    align-items: center;
+  
+  }
+  .form-sub-card{
+    margin-right: 3rem;
+  }
+  .enroll-main-card {
+    padding-top: 7rem;
+  }
+}
+
+.table-card {
+  overflow-x: auto;
+}
+
+.rupee {
+  font-size: 1rem;
+  margin-top: 0.15rem;
+}
+
+#rupi {
+  font-size: 1rem;
+  position: relative;
+  top: +0.2rem;
+  right: 15.3rem;  
+  
+   
+}
+#rupi1 {
+  font-size: 1rem;
+  position: relative;
+  top: +0.2rem;
+right: 15.3rem;  
+
+}
+
+#rupi2 {
+  font-size: 1rem;
+  position: relative;
+  top: +0.2rem;
+right: 15.3rem;  
+}
+#rupi3 {
+  font-size: 1rem;
+  position: relative;
+  top: +0.2rem;
+right: 15.3rem;  
+}
+ 
+table th,
+td {
+  border: 1px solid;
+}
+
+.nav-text {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.login-card {
+  box-shadow: 0 0 7px white;
+  padding: 15px;
+  border-radius: 10px;
+  color: white;
+  
+  
+
+}
+
+.students-card{
+  position: fixed;
+  background-color: rgb(23, 201, 85);
+ padding-bottom: 0;
+  width: 100vw;
+   
+}
+
+.all-text{
+  color: white;
+   
+  font-size: 20px;
+}
+
+
+ 
