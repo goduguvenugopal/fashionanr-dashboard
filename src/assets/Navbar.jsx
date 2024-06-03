@@ -16,7 +16,7 @@ const Navbar = () => {
       <nav className="navbar navbar-expand-lg fixed-top navbar-light bg-primary">
         <div className="container">
           <a style={{ fontSize: "24px" }} className="fw-bold navbar-brand text-white d-flex align-items-center" href="">
-          <img src="favicon.jpg" alt='logo' className='logo-favi'/>  Dashboard
+          <img src="./favicon.jpg" alt='logo' className='logo-favi'/>  Dashboard
           </a>
           <button
             className="navbar-toggler bg-white"
