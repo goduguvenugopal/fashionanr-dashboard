@@ -142,4 +142,10 @@ td {
 }
 
 
- 
+ .logo-favi{
+  width: 35px;
+  margin-right: 10px;
+  background-color: white;
+  padding: 2px;
+  border-radius: 5px;
+ }
