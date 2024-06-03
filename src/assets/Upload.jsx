@@ -3,7 +3,9 @@ import '../App.css';
 import axios from 'axios';
 import { passwordContext } from '../App';
 import { useNavigate } from 'react-router-dom';
-import { API } from "../api"
+ 
+
+const API = "https://fashionkart-server.onrender.com"
 
 const Upload = () => {
   const [password] = useContext(passwordContext);
@@ -145,7 +147,7 @@ const Upload = () => {
 
             <label className='label'>Upload Product Image</label>
             <br />
-            <input
+            <input style={{paddingLeft:"0px" , height:"inherit"}}
               onChange={fileFunc}
               required
               name='image'

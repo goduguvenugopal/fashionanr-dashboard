@@ -3,12 +3,12 @@ import '../App.css'
 import axios from 'axios'
 import { passwordContext } from '../App'
 import { useNavigate } from 'react-router-dom'
-import {API} from "../api"
-
+ 
+const API = "https://fashionkart-server.onrender.com"
 
 const Products = () => {
   const [data, setData] = useState([])
-  const [password, setPassword] = useContext(passwordContext)
+  const [password] = useContext(passwordContext)
   const navigate = useNavigate();
 
 console.log(data)

@@ -3,7 +3,6 @@ import '../App.css'
 import { passwordContext } from '../App'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
-import {API} from "../api"
  
 
 const Login = () => {
@@ -12,7 +11,8 @@ const Login = () => {
     const [password1, setPassword1] = useContext(passwordContext)
     const [spinner, setSpinner] = useState(false)
     const navigate = useNavigate();
-
+    
+const API = "https://fashionkart-server.onrender.com"
 
     // password verification function  
     const formFunc = async (e) => {
