@@ -90,7 +90,7 @@ console.log(data)
                   <td>{item.price}</td>
                   <td>{item.rating}</td>
                   <td>{item.description}</td>
-                  <td>{item.image && (<img style={{ width: '230px', height:'230px'  }} src={`${API}/uploads/${item.image}`} alt={item.title} />)}</td>
+                  <td>{item.image && (<img style={{ width: '230px', height:'230px'  }} src={`${API}/${item.image}`} alt={item.title} />)}</td>
                   <td><button onClick={()=>deleteProduct(item._id)} className='btn bg-danger text-white'>Delete</button></td>
                 </tr>
               ))}
