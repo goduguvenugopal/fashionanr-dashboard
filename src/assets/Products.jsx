@@ -6,6 +6,8 @@ import { useNavigate } from 'react-router-dom'
  
 const API = "https://fashionkart-server.onrender.com"
 
+// const API = "http://localhost:3000"
+
 const Products = () => {
   const [data, setData] = useState([])
   const [password] = useContext(passwordContext)
@@ -63,6 +65,8 @@ console.log(data)
       </div>
       <div className='container mt-5 ' >
 
+         
+
         {data.length ? <div className='table-card' style={{ paddingTop: "5rem" }}>
           <table className="table">
             <thead>
@@ -90,7 +94,7 @@ console.log(data)
                   <td>{item.price}</td>
                   <td>{item.rating}</td>
                   <td>{item.description}</td>
-                  <td>{item.image && (<img style={{ width: '230px', height:'230px'  }} src={`${API}/${item.image}`} alt={item.title} />)}</td>
+                  <td><img style={{ width: '230px', height:'230px'  }} src={`${API}/uploads/${item.image}`} alt={item.title} /></td>
                   <td><button onClick={()=>deleteProduct(item._id)} className='btn bg-danger text-white'>Delete</button></td>
                 </tr>
               ))}

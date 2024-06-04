@@ -3,9 +3,10 @@ import '../App.css';
 import axios from 'axios';
 import { passwordContext } from '../App';
 import { useNavigate } from 'react-router-dom';
- 
+
 
 const API = "https://fashionkart-server.onrender.com"
+// const API = "http://localhost:3000"
 
 const Upload = () => {
   const [password] = useContext(passwordContext);
@@ -13,12 +14,12 @@ const Upload = () => {
   const [title, setTitle] = useState('');
   const [category, setCategory] = useState('');
   const [price, setPrice] = useState("");
+  const [date, setDate] = useState("");
   const [rating, setRating] = useState("");
   const [image, setImage] = useState(null);
   const [description, setDescription] = useState('');
-  const [date, setDate] = useState('');
   const [spinner, setSpinner] = useState(false);
-
+  console.log(date)
   const fileFunc = (e) => {
     const file = e.target.files[0];
     setImage(file);
@@ -36,7 +37,9 @@ const Upload = () => {
     formData.append('rating', rating);
     formData.append('image', image);
     formData.append('description', description);
-    formData.append('date', date);
+    formData.append('date', date)
+
+    
 
     try {
       await axios.post(`${API}/product/uploadproduct`, formData);
@@ -119,7 +122,7 @@ const Upload = () => {
           </div>
 
           <div>
-            <label className='label'>Product Details</label>
+            <label className='label'>Product Description</label>
             <br />
             <input
               style={{ paddingLeft: '21px' }}
@@ -129,25 +132,29 @@ const Upload = () => {
               required
               type='text'
 
-              className='input-box'
+              className='input-box pl-0'
             />
             <br />
 
             <label className='label'>Date</label>
             <br />
             <input
+              style={{ paddingLeft: '21px' }}
               onChange={(e) => setDate(e.target.value)}
-              required
               name='date'
               value={date}
+              required
               type='date'
-              className='input-box'
+
+              className='input-box '
             />
             <br />
 
+
+
             <label className='label'>Upload Product Image</label>
             <br />
-            <input style={{paddingLeft:"0px" , height:"inherit"}}
+            <input style={{ paddingLeft: "0px", height: "inherit" }}
               onChange={fileFunc}
               required
               name='image'
