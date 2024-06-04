@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom'
  
 const API = "https://fashionkart-server.onrender.com"
 
-// const API = "http://localhost:3000"
+ 
 
 const Products = () => {
   const [data, setData] = useState([])
@@ -94,7 +94,7 @@ console.log(data)
                   <td>{item.price}</td>
                   <td>{item.rating}</td>
                   <td>{item.description}</td>
-                  <td><img style={{ width: '230px', height:'230px'  }} src={`${API}/uploads/${item.image}`} alt={item.title} /></td>
+                  <td><img style={{ width: '230px', height:'230px'  }} src={item.image} alt={item.title} /></td>
                   <td><button onClick={()=>deleteProduct(item._id)} className='btn bg-danger text-white'>Delete</button></td>
                 </tr>
               ))}

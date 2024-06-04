@@ -3,10 +3,12 @@ import '../App.css';
 import axios from 'axios';
 import { passwordContext } from '../App';
 import { useNavigate } from 'react-router-dom';
+import { getDownloadURL, getStorage, ref, uploadBytes } from 'firebase/storage';
+import app from "../firebase"
 
 
 const API = "https://fashionkart-server.onrender.com"
-// const API = "http://localhost:3000"
+
 
 const Upload = () => {
   const [password] = useContext(passwordContext);
@@ -16,30 +18,40 @@ const Upload = () => {
   const [price, setPrice] = useState("");
   const [date, setDate] = useState("");
   const [rating, setRating] = useState("");
-  const [image, setImage] = useState(null);
+  const [image, setImage] = useState("");
   const [description, setDescription] = useState('');
   const [spinner, setSpinner] = useState(false);
-  console.log(date)
-  const fileFunc = (e) => {
-    const file = e.target.files[0];
-    setImage(file);
 
+
+  // firbase function to get image url through firebase
+  const fileFunc = async (e) => {
+    const image = e.target.files[0];
+    if (image) {
+      try {
+        const storage = getStorage(app)
+        const storageRef = ref(storage, "images/" + image.name)
+        await uploadBytes(storageRef, image);
+        const downLoadUrl = await getDownloadURL(storageRef)
+        setImage(downLoadUrl)
+        alert("Image Uploaded Successfully")
+        console.log(downLoadUrl)
+      }
+      catch (error) {
+        console.log(error)
+        alert("Image not uploaded")
+      }
+
+    }
   };
 
+
+  // form submitting to the database 
   const formFunc = async (e) => {
     setSpinner(true);
     e.preventDefault();
 
-    const formData = new FormData();
-    formData.append('title', title);
-    formData.append('category', category);
-    formData.append('price', price);
-    formData.append('rating', rating);
-    formData.append('image', image);
-    formData.append('description', description);
-    formData.append('date', date)
-
     
+    const formData = {title , price , rating , description , image , category , date}
 
     try {
       await axios.post(`${API}/product/uploadproduct`, formData);
@@ -171,7 +183,7 @@ const Upload = () => {
                 Submitting...
               </button>
             ) : (
-              <button type='submit' className='text-white btn bg-primary'>
+              <button disabled={!image ? true : false} type='submit' className='text-white btn bg-primary'>
                 Submit
               </button>
             )}
