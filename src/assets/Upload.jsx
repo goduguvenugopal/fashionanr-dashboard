@@ -33,13 +33,13 @@ const Upload = () => {
         await uploadBytes(storageRef, image);
         const downLoadUrl = await getDownloadURL(storageRef)
         setImage(downLoadUrl)
-        alert("Image Uploaded Successfully")
-        formFunc()
+        alert("Image url downloaded Successfully")
+        
         
       }
       catch (error) {
         console.log(error)
-        alert("Image not uploaded")
+        alert("Image url not downloaded")
       }
 
     }
