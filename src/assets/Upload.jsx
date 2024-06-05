@@ -18,7 +18,7 @@ const Upload = () => {
   const [price, setPrice] = useState("");
   const [date, setDate] = useState(new Date().toLocaleDateString("en-Gb"));
   const [rating, setRating] = useState("");
-  const [image, setImage] = useState("");
+  const [image, setImage] = useState(null);
   const [description, setDescription] = useState('');
   const [spinner, setSpinner] = useState(false);
 
@@ -34,6 +34,7 @@ const Upload = () => {
         const downLoadUrl = await getDownloadURL(storageRef)
         setImage(downLoadUrl)
         alert("Image Uploaded Successfully")
+        formFunc()
         
       }
       catch (error) {
@@ -63,7 +64,7 @@ const Upload = () => {
       setPrice("");
       setCategory("")
       setRating("");
-      setImage("");
+      setImage(null);
       setDescription("")
     } catch (error) {
       setSpinner(false);
@@ -91,7 +92,7 @@ const Upload = () => {
               required
               type='text'
               name='category'
-              value={category}
+              value={category.trim()}
               className='input-box'
             />
             <br />
