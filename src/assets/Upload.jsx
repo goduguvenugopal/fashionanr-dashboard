@@ -18,7 +18,7 @@ const Upload = () => {
   const [price, setPrice] = useState("");
   const [date, setDate] = useState(new Date().toLocaleDateString("en-Gb"));
   const [rating, setRating] = useState("");
-  const [image, setImage] = useState(null);
+  const [image, setImage] = useState("");
   const [description, setDescription] = useState('');
   const [spinner, setSpinner] = useState(false);
 
@@ -59,12 +59,12 @@ const Upload = () => {
 
       alert('Product has uploaded successfully');
       setSpinner(false);
-      setDate("")
+      
       setTitle("")
       setPrice("");
       setCategory("")
       setRating("");
-      setImage(null);
+      setImage("");
       setDescription("")
     } catch (error) {
       setSpinner(false);
