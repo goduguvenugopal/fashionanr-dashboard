@@ -16,7 +16,7 @@ const Upload = () => {
   const [title, setTitle] = useState('');
   const [category, setCategory] = useState('');
   const [price, setPrice] = useState("");
-  const [date, setDate] = useState("");
+  const [date, setDate] = useState(new Date().toLocaleDateString("en-Gb"));
   const [rating, setRating] = useState("");
   const [image, setImage] = useState("");
   const [description, setDescription] = useState('');
@@ -34,7 +34,7 @@ const Upload = () => {
         const downLoadUrl = await getDownloadURL(storageRef)
         setImage(downLoadUrl)
         alert("Image Uploaded Successfully")
-        console.log(downLoadUrl)
+        
       }
       catch (error) {
         console.log(error)
@@ -50,8 +50,8 @@ const Upload = () => {
     setSpinner(true);
     e.preventDefault();
 
-    
-    const formData = {title , price , rating , description , image , category , date}
+
+    const formData = { title, price, rating, description, image, category, date }
 
     try {
       await axios.post(`${API}/product/uploadproduct`, formData);
@@ -156,8 +156,8 @@ const Upload = () => {
               name='date'
               value={date}
               required
-              type='date'
-
+              type='text'
+              readOnly
               className='input-box '
             />
             <br />
