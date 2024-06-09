@@ -3,7 +3,7 @@ import '../App.css'
 import { passwordContext } from '../App'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
- 
+
 
 const Login = () => {
 
@@ -11,8 +11,9 @@ const Login = () => {
     const [password1, setPassword1] = useContext(passwordContext)
     const [spinner, setSpinner] = useState(false)
     const navigate = useNavigate();
-    
-const API = "https://fashionkart-server.onrender.com"
+     
+
+    const API = "https://fashionkart-server.onrender.com"
 
     // password verification function  
     const formFunc = async (e) => {
@@ -20,24 +21,21 @@ const API = "https://fashionkart-server.onrender.com"
         setSpinner(true)
 
         try {
-            const response = await axios.get(`${API}/product/login`)
+            const response = await axios.post(`${API}/product/login`,{password : password})
 
-            if (response.data === password) {
+            if (response) {
                 setSpinner(false)
                 alert("Logged in Successfully")
-                localStorage.setItem("password", password)
-                setPassword1(password)
-                
-            } else {
-                setSpinner(false)
-                alert("Please Enter Valid password")
+                localStorage.setItem("password", "password")
+                setPassword1("password")
+                setPassword("")
 
-            }
+            } 
         }
         catch (error) {
             console.log(error)
             setSpinner(false)
-            alert("Please Try Again Later server is Down")
+             alert("Please Enter Valid password, if not registered seller account please Contact us")
         }
     }
 
@@ -56,7 +54,7 @@ const API = "https://fashionkart-server.onrender.com"
         <div className='bg-dark  d-flex justify-content-center align-items-center ' style={{ width: "100vw", height: "100vh" }}>
             <div className=''>
                 <form className='login-card' onSubmit={formFunc}>
-                    <h4>Log in </h4>
+                    <h4>Seller Login </h4>
                     <hr className='mb-1' />
                     <label className='label'>Enter Password</label><br />
 
