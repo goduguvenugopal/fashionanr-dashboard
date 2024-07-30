@@ -23,13 +23,13 @@ console.log(data)
   }, [password])
 
 
-  //  get method of students 
+  //  get method of products
   useEffect(() => {
 
     const fetchData = async () => {
       try {
         const response = await axios.get(`${API}/product/getproducts`);
-        setData(response.data);
+        setData(response.data.reverse());
       } catch (error) {
         console.log(error);
         alert("Please Try Again: Server Is Not Responding");

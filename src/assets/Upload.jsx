@@ -45,6 +45,7 @@ const Upload = () => {
     }
   };
 
+  
 
   // form submitting to the database 
   const formFunc = async (e) => {
