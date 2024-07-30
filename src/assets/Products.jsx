@@ -13,7 +13,7 @@ const Products = () => {
   const [password] = useContext(passwordContext)
   const navigate = useNavigate();
 
-console.log(data)
+ 
 
   useEffect(() => {
 
