@@ -4,7 +4,7 @@ import axios from 'axios'
 import { passwordContext } from '../App'
 import { useNavigate } from 'react-router-dom'
  
-const API = "https://fashionkart-server.onrender.com"
+const API = "https://fashionanr-backend.onrender.com"
 
  
 

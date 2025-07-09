@@ -7,7 +7,7 @@ import { getDownloadURL, getStorage, ref, uploadBytes } from 'firebase/storage';
 import app from "../firebase"
 
 
-const API = "https://fashionkart-server.onrender.com"
+const API = "https://fashionanr-backend.onrender.com"
 
 
 const Upload = () => {

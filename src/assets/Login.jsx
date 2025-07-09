@@ -13,7 +13,7 @@ const Login = () => {
     const navigate = useNavigate();
      
 
-    const API = "https://fashionkart-server.onrender.com"
+    const API = "https://fashionanr-backend.onrender.com"
 
     // password verification function  
     const formFunc = async (e) => {
